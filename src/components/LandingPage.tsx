@@ -20,7 +20,6 @@ import ContactModal, {
   DISCORD_ID,
   GMAIL_ADDRESS,
   GITHUB_URL,
-  DISCORD_FALLBACK_AVATAR,
   DiscordIcon,
   GmailIcon,
   GitHubIcon,
@@ -231,21 +230,10 @@ export default function LandingPage({
               type="button"
               id="btn-nav-contact"
               onClick={() => setContactOpen(true)}
-              className="lp-nav-link lp-nav-link-contact"
-              title="Contact Developer (@moses.exe)"
+              className="lp-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              <div className="lp-nav-contact-avatar-wrap">
-                <img
-                  src={DISCORD_FALLBACK_AVATAR}
-                  alt="moses.exe"
-                  className="lp-nav-contact-avatar"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = 'https://github.com/l4vrboyc-afk.png';
-                  }}
-                />
-                <span className="lp-nav-contact-dot" />
-              </div>
-              <span>Contact</span>
+              Contact
             </button>
           </nav>
 
@@ -563,19 +551,10 @@ export default function LandingPage({
             <button
               type="button"
               onClick={() => setContactOpen(true)}
-              className="lp-footer-contact-badge"
+              className="lp-footer-contact-btn"
               title="Open Contact Card"
             >
-              <img
-                src={DISCORD_FALLBACK_AVATAR}
-                alt="moses.exe"
-                className="w-4 h-4 rounded-full border border-white/20 object-cover"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://github.com/l4vrboyc-afk.png';
-                }}
-              />
-              <span className="font-mono text-xs text-white/80">moses.exe</span>
-              <span className="lp-footer-contact-hint">Contact</span>
+              Contact Me
             </button>
 
             <div className="lp-footer-social-icons">
@@ -584,16 +563,16 @@ export default function LandingPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lp-footer-social-link"
-                title="Discord Profile (@moses.exe)"
+                title="Discord (@moses.exe)"
               >
-                <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2]" />
+                <DiscordIcon className="w-5 h-5" />
               </a>
               <a
                 href={`mailto:${GMAIL_ADDRESS}?subject=ThreatScope%20Inquiry`}
                 className="lp-footer-social-link"
                 title="Send Email (l4vrboyc@gmail.com)"
               >
-                <GmailIcon className="w-3.5 h-3.5" />
+                <GmailIcon className="w-5 h-5" />
               </a>
               <a
                 href={GITHUB_URL}
@@ -602,7 +581,7 @@ export default function LandingPage({
                 className="lp-footer-social-link"
                 title="GitHub Profile (l4vrboyc-afk)"
               >
-                <GitHubIcon className="w-3.5 h-3.5 text-white" />
+                <GitHubIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
