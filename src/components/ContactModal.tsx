@@ -137,47 +137,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </button>
         </div>
 
-        {/* Developer Profile Card (Unadorned, PFP has its natural colors) */}
-        <div className="px-6 pt-5 pb-1">
-          <div className="p-3.5 rounded-lg border border-white/[0.08] bg-white/[0.02] flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-white/20 bg-black flex-shrink-0">
-              <img
-                src={avatarSrc}
-                alt="Profile Avatar"
-                className="w-full h-full object-cover"
-                onError={() => setAvatarSrc('https://github.com/l4vrboyc-afk.png')}
-              />
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-bold font-mono text-white truncate">
-                  {displayName}
-                </span>
-                <span className="text-[10px] font-mono text-white/40 uppercase">
-                  @{DISCORD_USERNAME}
-                </span>
-              </div>
-              <p className="text-xs text-white/50 font-mono mt-0.5">
-                Developer &amp; Security Researcher
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Channels List */}
         <div className="p-6 space-y-3">
           {/* 1. DISCORD */}
           <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all p-3.5 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3.5 min-w-0">
-              <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0">
-                <DiscordIcon className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/20 bg-black flex-shrink-0">
+                <img
+                  src={avatarSrc}
+                  alt={DISCORD_USERNAME}
+                  className="w-full h-full object-cover"
+                  onError={() => setAvatarSrc('https://github.com/l4vrboyc-afk.png')}
+                />
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] font-mono uppercase tracking-wider text-white/40">
                   Discord
                 </div>
-                <div className="text-sm font-semibold text-white font-mono truncate">
-                  {DISCORD_USERNAME}
+                <div className="text-sm font-semibold text-white font-mono truncate flex items-center gap-1.5">
+                  <span>{DISCORD_USERNAME}</span>
+                  {displayName && displayName.toLowerCase() !== DISCORD_USERNAME.toLowerCase() && (
+                    <span className="text-[11px] font-normal text-white/40">({displayName})</span>
+                  )}
                 </div>
                 <div className="text-[10px] font-mono text-white/40 truncate">
                   ID: {DISCORD_ID}
