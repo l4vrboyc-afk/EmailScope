@@ -1,0 +1,27 @@
+services:
+  engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: emailscope-engine:latest
+    container_name: emailscope-engine
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DATA_DIR=/app/data
+      - ALLOWED_ORIGINS=http://localhost:5177,http://localhost:3000,https://your-frontend.vercel.app
+      # - HIBP_API_KEY=your_hibp_key_here
+    volumes:
+      - emailscope-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+volumes:
+  emailscope-data:
+    driver: local

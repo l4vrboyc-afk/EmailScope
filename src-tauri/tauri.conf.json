@@ -1,0 +1,31 @@
+﻿{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ThreatScope",
+  "version": "0.1.0",
+  "identifier": "com.threatscope.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "ThreatScope",
+        "width": 1280,
+        "height": 800
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi"],
+    "publisher": "ThreatScope",
+    "license": "MIT"
+  }
+}

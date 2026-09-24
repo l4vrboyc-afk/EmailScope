@@ -1,0 +1,78 @@
+/* Design Tokens - Moses Egbunike Digital Engineering Lab */
+
+:root {
+  /* Core Void & Obsidian Tones */
+  --bg-void: #060709;
+  --bg-surface-0: #0a0c0f;
+  --bg-surface-1: #101217;
+  --bg-surface-2: #161920;
+  --bg-surface-3: #1e222b;
+  --bg-glass: rgba(10, 12, 15, 0.75);
+
+  /* Borders & Grid Rules */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.13);
+  --border-active: rgba(255, 255, 255, 0.28);
+  --border-highlight: rgba(255, 255, 255, 0.45);
+
+  /* High-Contrast Foreground Typography */
+  --text-pure: #ffffff;
+  --text-primary: #ededed;
+  --text-secondary: #9ea3ae;
+  --text-muted: #5e6472;
+  --text-ghost: #3a3e48;
+
+  /* Telemetry Accent Defaults (Theme 1: Phosphor Monolith) */
+  --accent: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.18);
+  --accent-dim: rgba(16, 185, 129, 0.08);
+  --accent-border: rgba(16, 185, 129, 0.35);
+
+  /* Status Colors */
+  --status-nominal: #10b981;
+  --status-warning: #f59e0b;
+  --status-critical: #ef4444;
+  --status-info: #60a5fa;
+
+  /* Typography Stacks */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+  --space-3xl: 6rem;    /* 96px */
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Transitions */
+  --ease-tactile: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-norm: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* Theme 2: Amber Telemetry */
+[data-theme="amber"] {
+  --accent: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.18);
+  --accent-dim: rgba(245, 158, 11, 0.08);
+  --accent-border: rgba(245, 158, 11, 0.35);
+}
+
+/* Theme 3: Stark Titanium */
+[data-theme="titanium"] {
+  --accent: #f3f4f6;
+  --accent-glow: rgba(255, 255, 255, 0.15);
+  --accent-dim: rgba(255, 255, 255, 0.06);
+  --accent-border: rgba(255, 255, 255, 0.4);
+}

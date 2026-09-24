@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist/
+build/
+*.exe
+*.pdb
+*.spec
+
+# Tauri
+src-tauri/target/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.pytest_cache/
+
+# Misc
+*.local
+.turbo/
+
+# ---------------------------------------------------------------------------
+# EmailScope deployment tooling (appended — never remove Tauri ignores above)
+# ---------------------------------------------------------------------------
+# Local intelligence databases (mount as Docker volumes; never commit)
+data/
+*.db
+*.mmdb
+*.sqlite
+
+# Root-level Tauri build tree (the Tauri block above only covers src-tauri/)
+tauri/target/
+
+# Desktop-inspection build output (PyInstaller — also caught by *.spec)
+build/
+dist/
+
+# Stray scratch / debug artifacts
+app_view_step_*.txt
+tauri_dev_test.txt
+test_compile.rs
+test_narrative.py
+test_output.*
+
+# Editor / assistant scratch
+.claude/
+.codegraph/
+
+# Moses Lab Portfolio
+moses-lab/node_modules/
+moses-lab/dist/
+

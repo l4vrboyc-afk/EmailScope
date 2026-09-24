@@ -1,0 +1,19 @@
+﻿[project]
+name = "threatscope"
+version = "0.1.0"
+description = "Email intelligence & OSINT analysis engine"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.0",
+    "dnspython>=2.4",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
