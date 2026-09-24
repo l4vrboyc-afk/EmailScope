@@ -139,59 +139,33 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
         {/* Channels List */}
         <div className="p-6 space-y-3">
-          {/* 1. DISCORD */}
+          {/* 1. GITHUB */}
           <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all p-3.5 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3.5 min-w-0">
-              <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/20 bg-black flex-shrink-0">
-                <img
-                  src={avatarSrc}
-                  alt={DISCORD_USERNAME}
-                  className="w-full h-full object-cover"
-                  onError={() => setAvatarSrc('https://github.com/l4vrboyc-afk.png')}
-                />
+              <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0">
+                <GitHubIcon className="w-5 h-5" />
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] font-mono uppercase tracking-wider text-white/40">
-                  Discord
+                  GitHub
                 </div>
-                <div className="text-sm font-semibold text-white font-mono truncate flex items-center gap-1.5">
-                  <span>{DISCORD_USERNAME}</span>
-                  {displayName && displayName.toLowerCase() !== DISCORD_USERNAME.toLowerCase() && (
-                    <span className="text-[11px] font-normal text-white/40">({displayName})</span>
-                  )}
+                <div className="text-sm font-semibold text-white font-mono truncate">
+                  l4vrboyc-afk
                 </div>
                 <div className="text-[10px] font-mono text-white/40 truncate">
-                  ID: {DISCORD_ID}
+                  Source &amp; Repositories
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 flex-shrink-0">
-              <button
-                type="button"
-                onClick={() => copyToClipboard(DISCORD_USERNAME, 'discord')}
-                className="px-2.5 py-1.5 rounded border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-xs font-mono text-white/80 hover:text-white transition-all flex items-center gap-1.5"
-                title="Copy Discord username"
-              >
-                {copiedKey === 'discord' ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-white/60" />
-                    <span>Copy</span>
-                  </>
-                )}
-              </button>
               <a
-                href={`https://discord.com/users/${DISCORD_ID}`}
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded border border-white/10 bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono font-medium text-white transition-all flex items-center gap-1.5"
+                className="px-3.5 py-1.5 rounded border border-white/10 bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono font-medium text-white transition-all flex items-center gap-1.5"
               >
-                <span>Profile</span>
+                <span>GitHub</span>
                 <ExternalLink className="w-3.5 h-3.5 text-white/60" />
               </a>
             </div>
@@ -245,33 +219,59 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
           </div>
 
-          {/* 3. GITHUB */}
+          {/* 3. DISCORD */}
           <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all p-3.5 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3.5 min-w-0">
-              <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0">
-                <GitHubIcon className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/20 bg-black flex-shrink-0">
+                <img
+                  src={avatarSrc}
+                  alt={DISCORD_USERNAME}
+                  className="w-full h-full object-cover"
+                  onError={() => setAvatarSrc('https://github.com/l4vrboyc-afk.png')}
+                />
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] font-mono uppercase tracking-wider text-white/40">
-                  GitHub
+                  Discord
                 </div>
-                <div className="text-sm font-semibold text-white font-mono truncate">
-                  l4vrboyc-afk
+                <div className="text-sm font-semibold text-white font-mono truncate flex items-center gap-1.5">
+                  <span>{DISCORD_USERNAME}</span>
+                  {displayName && displayName.toLowerCase() !== DISCORD_USERNAME.toLowerCase() && (
+                    <span className="text-[11px] font-normal text-white/40">({displayName})</span>
+                  )}
                 </div>
                 <div className="text-[10px] font-mono text-white/40 truncate">
-                  Source &amp; Repositories
+                  ID: {DISCORD_ID}
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 flex-shrink-0">
+              <button
+                type="button"
+                onClick={() => copyToClipboard(DISCORD_USERNAME, 'discord')}
+                className="px-2.5 py-1.5 rounded border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-xs font-mono text-white/80 hover:text-white transition-all flex items-center gap-1.5"
+                title="Copy Discord username"
+              >
+                {copiedKey === 'discord' ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-white" />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-white/60" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
               <a
-                href={GITHUB_URL}
+                href={`https://discord.com/users/${DISCORD_ID}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded border border-white/10 bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono font-medium text-white transition-all flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded border border-white/10 bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono font-medium text-white transition-all flex items-center gap-1.5"
               >
-                <span>GitHub</span>
+                <span>Profile</span>
                 <ExternalLink className="w-3.5 h-3.5 text-white/60" />
               </a>
             </div>

@@ -559,13 +559,13 @@ export default function LandingPage({
 
             <div className="lp-footer-social-icons">
               <a
-                href={`https://discord.com/users/${DISCORD_ID}`}
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lp-footer-social-link"
-                title="Discord (@moses.exe)"
+                title="GitHub Profile (l4vrboyc-afk)"
               >
-                <DiscordIcon className="w-5 h-5" />
+                <GitHubIcon className="w-5 h-5" />
               </a>
               <a
                 href={`mailto:${GMAIL_ADDRESS}?subject=ThreatScope%20Inquiry`}
@@ -575,13 +575,13 @@ export default function LandingPage({
                 <GmailIcon className="w-5 h-5" />
               </a>
               <a
-                href={GITHUB_URL}
+                href={`https://discord.com/users/${DISCORD_ID}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lp-footer-social-link"
-                title="GitHub Profile (l4vrboyc-afk)"
+                title="Discord (@moses.exe)"
               >
-                <GitHubIcon className="w-5 h-5" />
+                <DiscordIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
