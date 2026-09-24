@@ -132,19 +132,24 @@ export default function App() {
   const [caseVaultOpen, setCaseVaultOpen] = useState(false);
   const [apiKeysOpen, setApiKeysOpen] = useState(false);
 
-  const [showOfflinePage, setShowOfflinePage] = useState(!navigator.onLine);
+  // Show 404 overlay for unknown URL paths or when offline
+  const isUnknownPath = window.location.pathname !== '/';
+  const [showOfflinePage, setShowOfflinePage] = useState(!navigator.onLine || isUnknownPath);
 
   // Show 404/offline overlay whenever the browser loses connectivity
   useEffect(() => {
     const goOffline = () => setShowOfflinePage(true);
-    const goOnline = () => setShowOfflinePage(false);
+    const goOnline = () => {
+      // Only auto-dismiss offline overlay if we didn't land on an unknown path
+      if (!isUnknownPath) setShowOfflinePage(false);
+    };
     window.addEventListener('offline', goOffline);
     window.addEventListener('online', goOnline);
     return () => {
       window.removeEventListener('offline', goOffline);
       window.removeEventListener('online', goOnline);
     };
-  }, []);
+  }, [isUnknownPath]);
 
   const [progressStage, setProgressStage] = useState<string | null>(null);
   const [seenStages, setSeenStages] = useState<string[]>([]);
