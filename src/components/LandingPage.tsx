@@ -16,6 +16,15 @@ import {
   CheckCircle,
   X,
 } from 'lucide-react';
+import ContactModal, {
+  DISCORD_ID,
+  GMAIL_ADDRESS,
+  GITHUB_URL,
+  DISCORD_FALLBACK_AVATAR,
+  DiscordIcon,
+  GmailIcon,
+  GitHubIcon,
+} from './ContactModal';
 
 interface LandingPageProps {
   onLaunchWorkspace: () => void;
@@ -165,6 +174,7 @@ export default function LandingPage({
 }: LandingPageProps) {
   const [heroVisible, setHeroVisible] = useState(false);
   const [detectedOS, setDetectedOS] = useState<OSType>('windows');
+  const [contactOpen, setContactOpen] = useState(false);
   const breachSection  = useInView();
   const capSection     = useInView();
   const dlSection      = useInView();
@@ -217,6 +227,26 @@ export default function LandingPage({
               <Download className="w-3 h-3" />
               Download
             </a>
+            <button
+              type="button"
+              id="btn-nav-contact"
+              onClick={() => setContactOpen(true)}
+              className="lp-nav-link lp-nav-link-contact"
+              title="Contact Developer (@moses.exe)"
+            >
+              <div className="lp-nav-contact-avatar-wrap">
+                <img
+                  src={DISCORD_FALLBACK_AVATAR}
+                  alt="moses.exe"
+                  className="lp-nav-contact-avatar"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = 'https://github.com/l4vrboyc-afk.png';
+                  }}
+                />
+                <span className="lp-nav-contact-dot" />
+              </div>
+              <span>Contact</span>
+            </button>
           </nav>
 
           {/* CTA */}
@@ -527,6 +557,56 @@ export default function LandingPage({
             <img src="/logo.png" alt="ThreatScope" className="lp-footer-logo" />
             <span className="lp-footer-name">ThreatScope OSINT Framework</span>
           </div>
+
+          {/* Socials & Developer Contact */}
+          <div className="lp-footer-contact-row">
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
+              className="lp-footer-contact-badge"
+              title="Open Contact Card"
+            >
+              <img
+                src={DISCORD_FALLBACK_AVATAR}
+                alt="moses.exe"
+                className="w-4 h-4 rounded-full border border-white/20 object-cover"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://github.com/l4vrboyc-afk.png';
+                }}
+              />
+              <span className="font-mono text-xs text-white/80">moses.exe</span>
+              <span className="lp-footer-contact-hint">Contact</span>
+            </button>
+
+            <div className="lp-footer-social-icons">
+              <a
+                href={`https://discord.com/users/${DISCORD_ID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lp-footer-social-link"
+                title="Discord Profile (@moses.exe)"
+              >
+                <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2]" />
+              </a>
+              <a
+                href={`mailto:${GMAIL_ADDRESS}?subject=ThreatScope%20Inquiry`}
+                className="lp-footer-social-link"
+                title="Send Email (l4vrboyc@gmail.com)"
+              >
+                <GmailIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lp-footer-social-link"
+                title="GitHub Profile (l4vrboyc-afk)"
+              >
+                <GitHubIcon className="w-3.5 h-3.5 text-white" />
+              </a>
+            </div>
+          </div>
+
           <div className="lp-footer-meta">
             <span>Client-Side Execution</span>
             <span className="lp-dot">·</span>
@@ -536,6 +616,9 @@ export default function LandingPage({
           </div>
         </div>
       </footer>
+
+      {/* ══ CONTACT MODAL ══════════════════════════════════════════ */}
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   );
 }
