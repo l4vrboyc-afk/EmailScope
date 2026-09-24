@@ -367,21 +367,6 @@ export default function App() {
 
   const emptyState = !graphData;
 
-  // Minimal dark skeleton shown while a lazy chunk is downloading
-  const LazyFallback = () => (
-    <div className="flex items-center justify-center w-full h-full bg-[#000000]">
-      <div className="flex gap-1.5">
-        {[0,1,2].map(i => (
-          <span
-            key={i}
-            className="w-1 h-1 rounded-full bg-white/20"
-            style={{ animation: `pulse 1.2s ease-in-out ${i * 0.2}s infinite` }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <div className="flex flex-col h-screen w-screen bg-[#000000] text-white font-mono overflow-hidden select-none">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
